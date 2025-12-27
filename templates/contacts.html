@@ -1,0 +1,54 @@
+{{define "content"}}
+<div style="max-width: 800px; margin: 0 auto;">
+    <h1 class="section-title">Контакты</h1>
+    
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin: 3rem 0;">
+        <div style="background: rgba(255,255,255,0.05); padding: 2rem; border-radius: 15px;">
+            <h3 style="color: var(--primary); margin-bottom: 1rem;">📞 Телефон</h3>
+            <p style="font-size: 1.3rem; margin-bottom: 0.5rem;">+7 (917) 564-00-89</p>
+            <p style="color: #aaa;">Ежедневно с 10:00 до 20:00</p>
+        </div>
+        
+        <div style="background: rgba(255,255,255,0.05); padding: 2rem; border-radius: 15px;">
+            <h3 style="color: var(--primary); margin-bottom: 1rem;">✉️ Email</h3>
+            <p style="font-size: 1.3rem; margin-bottom: 0.5rem;">volxa@list.ru</p>
+            <p style="color: #aaa;">Ответ в течение 24 часов</p>
+        </div>
+    </div>
+    
+    <div style="background: rgba(255,255,255,0.05); padding: 2rem; border-radius: 15px; margin-top: 2rem;">
+        <h3 style="margin-bottom: 1.5rem;">Форма заказа</h3>
+        <form 
+            style="display: grid; gap: 1rem;"
+            action="/feedback"
+        >
+            <input 
+                type="text" 
+                placeholder="Ваше имя" 
+                style="padding: 1rem; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; color: white;"
+                name="name"
+            />
+            <input 
+                name="email"
+                type="email" 
+                placeholder="Email" 
+                style="padding: 1rem; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; color: white;"
+            />
+            <textarea 
+                name="description"
+                placeholder="Сообщение или номер интересующей работы" 
+                rows="4" 
+                style="padding: 1rem; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; color: white;"
+            >
+            </textarea>
+            <button 
+                type="submit" 
+                class="cta-button" 
+                style="width: 100%;"
+            >
+                Отправить запрос
+            </button>
+        </form>
+    </div>
+</div>
+{{end}}

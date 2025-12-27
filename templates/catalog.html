@@ -1,0 +1,32 @@
+{{define "content"}}
+    <h1 class="section-title">Каталог всех работ</h1>
+    <p style="text-align: center; color: #aaa; margin-bottom: 3rem; font-size: 1.2rem;">
+        Всего работ: {{len .Works}} · Каждая вышивается вручную от 2 до 4 недель
+    </p>
+    
+    <div class="products-grid">
+        {{range .Works}}
+        <article class="product-card" id="{{.ID}}">
+            <img src="{{.ImageURL}}" alt="{{.Title}}" class="product-img">
+            <div class="product-content">
+                <h3 class="product-title">{{.Title}}</h3>
+                <div class="product-meta">
+                    <span>Размер: {{.Size}}</span>
+                    <span>Артикул: {{.ID}}</span>
+                </div>
+                <div class="product-price">{{.Price}} руб.</div>
+                <p class="product-description">{{.Description}}</p>
+                <a href="/contacts?product={{.ID}}" class="product-button">Заказать эту работу</a>
+            </div>
+        </article>
+        {{end}}
+    </div>
+    
+    <div style="text-align: center; margin-top: 4rem; padding: 2rem; background: rgba(52, 152, 219, 0.1); border-radius: 15px;">
+        <h3 style="margin-bottom: 1rem;">Хотите индивидуальный дизайн?</h3>
+        <p style="color: #aaa; margin-bottom: 1.5rem;">Могу вышить картину по вашему фото или эскизу</p>
+        <a href="/contacts" class="cta-button" style="background: linear-gradient(135deg, #2ecc71, #27ae60);">
+            Обсудить заказ
+        </a>
+    </div>
+{{end}}

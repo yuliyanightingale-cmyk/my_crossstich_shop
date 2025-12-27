@@ -1,0 +1,39 @@
+{{define "content"}}
+    <!-- Герой-секция -->
+    <section class="hero">
+        <h1>Вышитые картины крестом</h1>
+        <p>Уникальные ручные работы. Каждый стежок — с любовью и вниманием к деталям.</p>
+        <a href="/catalog" class="cta-button">Смотреть каталог</a>
+    </section>
+
+    <!-- Популярные работы -->
+    <h2 class="section-title">Популярные работы</h2>
+    <div class="products-grid">
+        {{range .Works}}
+        <article class="product-card">
+            <img src="{{.ImageURL}}" alt="{{.Title}}" class="product-img">
+            <div class="product-content">
+                <h3 class="product-title">{{.Title}}</h3>
+                <div class="product-meta">
+                    <span>Размер: {{.Size}}</span>
+                </div>
+                <div class="product-price">{{.Price}} руб.</div>
+                <p class="product-description">{{.Description}}</p>
+                <a href="/catalog#{{.ID}}" class="product-button">Подробнее</a>
+            </div>
+        </article>
+        {{end}}
+    </div>
+
+    <!-- О нас -->
+    <section style="text-align: center; padding: 4rem 0;">
+        <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem;">О мастере</h2>
+        <p style="max-width: 800px; margin: 0 auto 2rem; color: #aaa; font-size: 1.2rem;">
+            Занимаюсь вышивкой крестом более 5 лет. Использую только качественные материалы: 
+            канву Aida, нитки DMC и Anchor. Каждая работа выполняется в единственном экземпляре.
+        </p>
+        <a href="/about" class="cta-button" style="background: linear-gradient(135deg, #9b59b6, #8e44ad);">
+            Узнать больше
+        </a>
+    </section>
+{{end}}
