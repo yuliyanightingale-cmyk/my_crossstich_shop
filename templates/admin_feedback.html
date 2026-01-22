@@ -1,0 +1,38 @@
+{{define "content"}}
+<div class="admin-container">
+    <h1>📋 Админка - Отзывы</h1>
+    
+    <div class="admin-nav">
+        <a href="/admin/stats" class="btn btn-primary">📊 Статистика</a>
+        <a href="/catalog" class="btn btn-secondary">🛍️ Каталог</a>
+        <a href="/" class="btn btn-secondary">🏠 На главную</a>
+    </div>
+    
+    {{if .Feedbacks}}
+    <div class="stats-summary">
+        <p>Всего отзывов: <strong>{{.Count}}</strong></p>
+    </div>
+    
+    <div class="feedback-list">
+        {{range .Feedbacks}}
+        <div class="feedback-card">
+            <div class="feedback-header">
+                <span class="feedback-id">#{{.ID}}</span>
+                <span class="feedback-name"><strong>{{.Name}}</strong></span>
+                <span class="feedback-email">{{.Email}}</span>
+                <span class="feedback-date">📅 {{.CreatedAt}}</span>
+            </div>
+            <div class="feedback-body">
+                <p>{{.Description}}</p>
+            </div>
+        </div>
+        {{end}}
+    </div>
+    {{else}}
+    <div class="empty-state">
+        <p>📭 Отзывов пока нет</p>
+        <a href="/contacts" class="btn btn-primary">Перейти к форме отзыва</a>
+    </div>
+    {{end}}
+</div>
+{{end}}

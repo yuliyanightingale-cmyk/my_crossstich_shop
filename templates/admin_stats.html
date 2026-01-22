@@ -1,0 +1,51 @@
+{{define "content"}}
+<div class="admin-container">
+    <h1>📊 Админка - Статистика</h1>
+    
+    <div class="admin-nav">
+        <a href="/admin/feedback" class="btn btn-primary">📋 Отзывы</a>
+        <a href="/catalog" class="btn btn-secondary">🛍️ Каталог</a>
+        <a href="/" class="btn btn-secondary">🏠 На главную</a>
+    </div>
+    
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-icon">🛍️</div>
+            <div class="stat-number">{{.CatalogCount}}</div>
+            <div class="stat-label">Товаров в каталоге</div>
+        </div>
+        
+        <div class="stat-card">
+            <div class="stat-icon">💬</div>
+            <div class="stat-number">{{index .FeedbackStats "total"}}</div>
+            <div class="stat-label">Всего запросов</div>
+        </div>
+        
+        <div class="stat-card">
+            <div class="stat-icon">📅</div>
+            <div class="stat-number">{{index .FeedbackStats "last7days"}}</div>
+            <div class="stat-label">Запросов за 7 дней</div>
+        </div>
+        
+        <div class="stat-card">
+            <div class="stat-icon">⏰</div>
+            <div class="stat-time">{{.ServerTime}}</div>
+            <div class="stat-label">Время сервера</div>
+        </div>
+    </div>
+    
+    {{if index .FeedbackStats "lastFeedback"}}
+    <div class="recent-activity">
+        <h3>📝 Последний отзыв был:</h3>
+        <p class="last-feedback-time">{{index .FeedbackStats "lastFeedback"}}</p>
+    </div>
+    {{end}}
+    
+    <div class="system-info">
+        <h3>🔧 Информация о системе</h3>
+        <p>База данных запросов: <strong>SQLite (feedback.db)</strong></p>
+        <p>База данных каталога: <strong>PostgreSQL</strong></p>
+        <p>Всего страниц: <strong>6</strong> (Главная, Каталог, О нас, Контакты, Админка запросов, Статистика)</p>
+    </div>
+</div>
+{{end}}
