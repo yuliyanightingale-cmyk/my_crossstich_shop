@@ -17,6 +17,8 @@ func main() {
 		panic(err)
 	}
 
+	fmt.Println(cfg)
+
 	db, err = repository.New(cfg)
 	if err != nil {
 		panic(err)
