@@ -1,27 +1,19 @@
 package config
 
 import (
+	"my_crossstich_shop/pkg/models"
 	"os"
 
 	"github.com/joho/godotenv"
 )
 
-type Config struct {
-	DbHost     string
-	DbPort     string
-	DbUser     string
-	DbPassword string
-	DbName     string
-	DbSslmode  string
-}
-
-func New() (*Config, error) {
+func New() (*models.Config, error) {
 	err := godotenv.Load(".env")
 	if err != nil {
 		return nil, err
 	}
 
-	cfg := &Config{
+	cfg := &models.Config{
 		DbHost:     os.Getenv("DB_HOST"),
 		DbPort:     os.Getenv("DB_PORT"),
 		DbUser:     os.Getenv("DB_USER"),
